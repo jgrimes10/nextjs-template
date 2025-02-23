@@ -1,5 +1,6 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import checkFile from "eslint-plugin-check-file";
+import n from "eslint-plugin-n";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -42,9 +43,16 @@ const eslintConfig = [
       "check-file/folder-naming-convention": [
         "error",
         {
-          "src/**": "KEBAB_CASE",
+          "src/**/!^[.*": "KEBAB_CASE",
         },
       ],
+    },
+  },
+  {
+    files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+    plugins: { n: n },
+    rules: {
+      "n/no-process-env": "error",
     },
   },
 ];

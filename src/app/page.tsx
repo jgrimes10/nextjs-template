@@ -1,6 +1,10 @@
 import { Card, CardBody } from "@heroui/react";
 
-export default function Home() {
+/**
+ * The Home page.
+ * @returns {JSX.Element} The Home page.
+ */
+export default async function Home() {
   return (
     <Card className="mx-auto mt-4 max-w-md">
       <CardBody className="text-center">
