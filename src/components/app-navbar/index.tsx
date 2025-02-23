@@ -26,6 +26,7 @@ export default function App() {
 
   if (status === "authenticated") {
     menuItems.push({ label: "Profile", href: "/profile" });
+    menuItems.push({ label: "Guest Book", href: "/guestbook" });
   }
 
   return (

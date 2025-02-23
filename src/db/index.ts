@@ -20,6 +20,7 @@
 import { PostgresJsDatabase, drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 
+import * as schema from "@/db/schema";
 import { env } from "@/env/server";
 
 /**
@@ -38,10 +39,10 @@ export const client: postgres.Sql = postgres(env.DATABASE_URL, {
  * Creates a drizzle ORM instance with the initialized PostgreSQL client.
  *
  * @constant
- * @type {PostgresJsDatabase}
+ * @type {PostgresJsDatabase<typeof schema>}
  * @default
  * @see {@link https://github.com/drizzle-team/drizzle-orm}
  */
-const db: PostgresJsDatabase = drizzle({ client: client });
+const db: PostgresJsDatabase<typeof schema> = drizzle({ client, schema });
 
 export default db;
